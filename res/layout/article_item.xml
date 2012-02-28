@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+	<TextView
+		android:id="@+id/articleTitre"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:padding="2dp"
+		android:textSize="14sp">
+	</TextView>
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<TextView
+			android:id="@+id/articleSite"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:padding="2dp"
+			android:textSize="12sp">
+		</TextView>
+		<TextView
+			android:id="@+id/articleCats"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:padding="2dp"
+			android:textSize="12sp"/>
+	</LinearLayout>
+</LinearLayout>
