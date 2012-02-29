@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.content.Intent;
 import android.net.Uri;
 
-public class ArticleActivity extends Activity {
+public class ArticleActivity extends NetActivity {
 	private Article article;
 
 	@Override
@@ -57,7 +57,10 @@ public class ArticleActivity extends Activity {
 		TextView tv_desc = (TextView)findViewById(R.id.article_desc);
 		TextView tv_site = (TextView)findViewById(R.id.article_site);
 		tv_titre.setText(article.getTitre());
-		tv_desc.setText(article.getDesc());
 		tv_site.setText(article.getSite());
+		if (testReseau())	
+			tv_desc.setText(article.getDesc());
+		else
+			dlgSansReseau();
 	}
 }
