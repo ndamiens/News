@@ -53,6 +53,11 @@ public class Article {
 		return "http://www.web-fr.org/?p=r&a="+this.id;
 	}
 
+	public String association(int id_categorie) {
+		String args[] = {"a", this.id, "g", String.valueOf(id_categorie)};
+		return News.downloadDoc("asso", args);
+	}
+
 	public String getDesc() {
 		String args[] = {"id", this.id};
 		return News.downloadDoc("article_description", args);

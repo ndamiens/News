@@ -41,7 +41,7 @@ import android.view.MenuItem;
 import android.view.MenuInflater;
 
 public class News extends NetActivity {
-	public final static String RELEASE = "5";
+	public final static String RELEASE = "7";
 	public final static String LOGNAME = "NewsClient";
 	private final static String BASEURL = "http://www.web-fr.org/";
 	public static Article article_ouvert;
@@ -101,15 +101,7 @@ public class News extends NetActivity {
 		ListView lv = (ListView)findViewById(R.id.lv);
 		adapter.setArticles(articles);
 	}
-/*
-	public boolean testReseau() {
-		ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(CONNECTIVITY_SERVICE);
-		NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-		if (networkInfo == null) return false;
-		State networkState = networkInfo.getState();
-		return networkState == State.CONNECTED;
-	}
-*/
+
 	public static String downloadDoc(String page, String arguments[]) {
 		HttpClient httpClient = new DefaultHttpClient();
 		HttpGet httpGet;
@@ -192,7 +184,7 @@ public class News extends NetActivity {
 		return articles;
 	}
 
-	public List<Groupe> getGroupes() {
+	public static List<Groupe> getGroupes() {
 		List<Groupe> groupes = new ArrayList<Groupe>();
 		groupes.add(new Groupe(1, "Environnement"));
 		groupes.add(new Groupe(2, "Sciences Nat."));

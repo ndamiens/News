@@ -1,11 +1,17 @@
 package org.webfr.news;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.util.Log;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MenuInflater;
 import android.widget.Button;
 import android.content.Intent;
 import android.net.Uri;
@@ -48,6 +54,23 @@ public class ArticleActivity extends NetActivity {
 				}
 			}
 		});
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.main_menu, menu);
+		List<Groupe> groupes = News.getGroupes();
+		for (int i=0;i<groupes.size();i++) {
+			Groupe groupe = groupes.get(i);
+			menu.add(Menu.NONE, new Integer(groupe.getId()), Menu.NONE, groupe.getNom());
+		}
+		return true;
+	}
+
+	public boolean onOptionsItemSelected(MenuItem item) {
+		this.article.association(item.getItemId());
+		return true;
 	}
 
 	public void setArticle(Article article) {
